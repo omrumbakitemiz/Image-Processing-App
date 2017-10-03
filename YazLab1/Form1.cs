@@ -15,6 +15,8 @@ namespace YazLab1
         public Form1()
         {
             InitializeComponent();
+
+            Histogram.ImportImage();
         }
     }
 }
