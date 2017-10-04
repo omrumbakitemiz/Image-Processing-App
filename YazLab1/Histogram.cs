@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Diagnostics;
 
 namespace YazLab1
 {
     public static class Histogram
     {
-        public static List<int[]> ImportImage()
+        public static (List<int[]>, int) ImportImage()
         {
             int[] red = new int[256];
             int[] green = new int[256];
             int[] blue = new int[256];
             int[] histogram = new int[256];
 
-            Image image = Image.FromFile(@"C:/image8.jpg");
+            Image image = Image.FromFile(@"C:/image5.jpg");
             Bitmap bitmap = new Bitmap(image);
 
             Color[] colors = new Color[image.Width * image.Height];
@@ -31,14 +32,22 @@ namespace YazLab1
                 }
             }
 
-            //for (int i = 0; i < colors.Length; i++)
-            //{
-            //    red[colors[i].R]++;
-            //    green[colors[i].G]++;
-            //    blue[colors[i].B]++;
-            //}
+            int sumRed = 0, sumGreen = 0, sumBlue = 0, avgRed, avgGreen, avgBlue, avgColors;
 
-            return new List<int[]> { red, green, blue };
+            for (int i = 0; i < 255; i++)
+            {
+                sumRed += red[i];
+                sumGreen += green[i];
+                sumBlue += blue[i];
+            }
+
+            avgRed = sumRed / 255;
+            avgGreen = sumGreen / 255;
+            avgBlue = sumBlue / 255;
+
+            avgColors = (avgRed + avgGreen + avgBlue) / 3;
+
+            return (new List<int[]> { red, green, blue }, avgColors);
         }
     }
 }

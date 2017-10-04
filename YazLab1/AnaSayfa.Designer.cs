@@ -1,6 +1,6 @@
 ﻿namespace YazLab1
 {
-    partial class Form1
+    partial class AnaSayfa
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.chartHistogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cboxRed = new System.Windows.Forms.CheckBox();
             this.cboxGreen = new System.Windows.Forms.CheckBox();
@@ -40,11 +40,11 @@
             // chartHistogram
             // 
             this.chartHistogram.BackColor = System.Drawing.Color.Silver;
-            chartArea4.Name = "ChartArea1";
-            this.chartHistogram.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.chartHistogram.ChartAreas.Add(chartArea1);
             this.chartHistogram.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Name = "Legend1";
-            this.chartHistogram.Legends.Add(legend4);
+            legend1.Name = "Legend1";
+            this.chartHistogram.Legends.Add(legend1);
             this.chartHistogram.Location = new System.Drawing.Point(0, 0);
             this.chartHistogram.Name = "chartHistogram";
             this.chartHistogram.Size = new System.Drawing.Size(1020, 757);
@@ -93,7 +93,7 @@
             this.cboxBlue.UseVisualStyleBackColor = false;
             this.cboxBlue.CheckedChanged += new System.EventHandler(this.cboxBlue_CheckedChanged);
             // 
-            // Form1
+            // AnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +102,8 @@
             this.Controls.Add(this.cboxGreen);
             this.Controls.Add(this.cboxRed);
             this.Controls.Add(this.chartHistogram);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "AnaSayfa";
+            this.Text = "Ana Sayfa";
             ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

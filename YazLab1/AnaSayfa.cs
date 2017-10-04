@@ -6,13 +6,13 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace YazLab1
 {
-    public partial class Form1 : Form
+    public partial class AnaSayfa : Form
     {
         private Series redSeries;
         private Series greenSeries;
         private Series blueSeries;
 
-        public Form1()
+        public AnaSayfa()
         {
             InitializeComponent();
 
@@ -21,8 +21,8 @@ namespace YazLab1
             chartHistogram.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
             chartHistogram.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             chartHistogram.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-
-            chartHistogram.ChartAreas[0].AxisY.ScaleView.Zoom(0, 120000);
+            
+            chartHistogram.ChartAreas[0].AxisY.ScaleView.Zoom(0, data.Item2*4);
             chartHistogram.ChartAreas[0].AxisX.ScaleView.Zoom(0, 255);
             chartHistogram.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chartHistogram.ChartAreas[0].CursorX.IsUserEnabled = true;
@@ -34,9 +34,9 @@ namespace YazLab1
 
             for (int i = 0; i < 255; i++)
             {
-                redSeries.Points.AddXY(i, data.ElementAt(0)[i]);
-                greenSeries.Points.AddXY(i, data.ElementAt(1)[i]);
-                blueSeries.Points.AddXY(i, data.ElementAt(2)[i]);
+                redSeries.Points.AddXY(i, data.Item1.ElementAt(0)[i]);
+                greenSeries.Points.AddXY(i, data.Item1.ElementAt(1)[i]);
+                blueSeries.Points.AddXY(i, data.Item1.ElementAt(2)[i]);
             }
         }
 
