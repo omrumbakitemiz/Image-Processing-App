@@ -17,7 +17,6 @@ namespace YazLab1
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             WindowState = FormWindowState.Maximized;
             #endregion
-
         }
 
         private void btn_fileOpen_Click(object sender, EventArgs e)
