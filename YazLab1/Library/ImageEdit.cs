@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Diagnostics;
 
 namespace YazLab1
 {
@@ -11,15 +8,14 @@ namespace YazLab1
         /// <summary>
         /// Bu metod parametre olarak aldığı resmin histogram değerlerini List<int[]> şeklinde ve histogram değerlerinin ortalamasını döndürür.
         /// </summary>
-        public static (List<int[]> histogramValues, int histogramValueAverage) Histogram()
+        public static (List<int[]> histogramValues, int histogramValueAverage) Histogram(Image image)
         {
             int[] red = new int[256];
             int[] green = new int[256];
             int[] blue = new int[256];
             int[] grayscale = new int[256];
             int[] histogram = new int[256];
-
-            Image image = Image.FromFile(@"C:/image5.jpg");
+            
             Bitmap bitmap = new Bitmap(image);
 
             Color[] colors = new Color[image.Width * image.Height];

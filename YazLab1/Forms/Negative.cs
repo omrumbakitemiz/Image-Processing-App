@@ -23,12 +23,12 @@ namespace YazLab1
             #endregion
 
             image = MainPage.selectedImage;
-            pictureBox.Image = image;
+            pbox_main.Image = image;
         }
 
         private void btn_negative_Click(object sender, EventArgs e)
         {
-            pictureBox.Image = ImageEdit.Negative(image);
+            pbox_negative.Image = ImageEdit.Negative(image);
         }
     }
 }

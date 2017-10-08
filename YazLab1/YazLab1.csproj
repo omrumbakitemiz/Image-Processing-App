@@ -64,12 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="deleted\AnaSayfa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="deleted\AnaSayfa.Designer.cs">
-      <DependentUpon>AnaSayfa.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ColorChannels.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +88,7 @@
     <Compile Include="Forms\Mirror.Designer.cs">
       <DependentUpon>Mirror.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageEdit.cs" />
+    <Compile Include="Library\ImageEdit.cs" />
     <Compile Include="Forms\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,9 +103,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="deleted\AnaSayfa.resx">
-      <DependentUpon>AnaSayfa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ColorChannels.resx">
       <DependentUpon>ColorChannels.cs</DependentUpon>
     </EmbeddedResource>

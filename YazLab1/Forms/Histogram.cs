@@ -12,6 +12,7 @@ namespace YazLab1
         private Series greenSeries;
         private Series blueSeries;
         private Series grayscaleSeries;
+        private Image image;
 
         public Histogram()
         {
@@ -21,12 +22,15 @@ namespace YazLab1
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             WindowState = FormWindowState.Maximized;
             #endregion
-            
-            DrawChart();
+
+            image = MainPage.selectedImage;
+
+            CalculateChart();
+
         }
-        private void DrawChart()
+        private void CalculateChart()
         {
-            var histogramData = ImageEdit.Histogram();
+            var histogramData = ImageEdit.Histogram(image);
 
             chartHistogram.ChartAreas[0].AxisY.ScaleView.Zoom(0, histogramData.Item2 * 4);
             chartHistogram.ChartAreas[0].AxisX.ScaleView.Zoom(0, 255);
@@ -87,7 +91,6 @@ namespace YazLab1
                 chartHistogram.Series["blue"].Color = Color.Blue;
             }
         }
-
         private void cboxGrayscale_CheckedChanged(object sender, EventArgs e)
         {
             if (chartHistogram.Series.Contains(grayscaleSeries))
@@ -101,6 +104,15 @@ namespace YazLab1
                 chartHistogram.Series["grayscale"].ChartType = SeriesChartType.Column;
                 chartHistogram.Series["grayscale"].Color = Color.DarkGray;
             }
+        }
+
+        private void btn_mainPage_Click(object sender, EventArgs e)
+        {
+            var mainPage = new MainPage();
+
+            Hide();
+            
+            mainPage.Show();
         }
     }
 }

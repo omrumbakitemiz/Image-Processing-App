@@ -36,6 +36,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cboxGrayscale = new System.Windows.Forms.CheckBox();
+            this.btn_undo = new System.Windows.Forms.Button();
+            this.btn_mainPage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -48,7 +50,7 @@
             this.cboxBlue.BackColor = System.Drawing.Color.Blue;
             this.cboxBlue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxBlue.ForeColor = System.Drawing.Color.White;
-            this.cboxBlue.Location = new System.Drawing.Point(543, 16);
+            this.cboxBlue.Location = new System.Drawing.Point(985, 16);
             this.cboxBlue.Name = "cboxBlue";
             this.cboxBlue.Size = new System.Drawing.Size(129, 55);
             this.cboxBlue.TabIndex = 6;
@@ -63,7 +65,7 @@
             this.cboxGreen.BackColor = System.Drawing.Color.ForestGreen;
             this.cboxGreen.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxGreen.ForeColor = System.Drawing.Color.White;
-            this.cboxGreen.Location = new System.Drawing.Point(286, 16);
+            this.cboxGreen.Location = new System.Drawing.Point(716, 16);
             this.cboxGreen.Name = "cboxGreen";
             this.cboxGreen.Size = new System.Drawing.Size(157, 55);
             this.cboxGreen.TabIndex = 5;
@@ -78,7 +80,7 @@
             this.cboxRed.BackColor = System.Drawing.Color.Red;
             this.cboxRed.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxRed.ForeColor = System.Drawing.Color.White;
-            this.cboxRed.Location = new System.Drawing.Point(61, 16);
+            this.cboxRed.Location = new System.Drawing.Point(479, 16);
             this.cboxRed.Name = "cboxRed";
             this.cboxRed.Size = new System.Drawing.Size(120, 55);
             this.cboxRed.TabIndex = 4;
@@ -119,21 +121,25 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 272F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.cboxGrayscale, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxRed, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxGreen, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxBlue, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(268, 929);
+            this.tableLayoutPanel2.Controls.Add(this.btn_mainPage, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_undo, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxGrayscale, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxRed, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxGreen, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxBlue, 4, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(38, 929);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(972, 87);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1432, 87);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // cboxGrayscale
@@ -143,13 +149,36 @@
             this.cboxGrayscale.BackColor = System.Drawing.Color.LightSlateGray;
             this.cboxGrayscale.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxGrayscale.ForeColor = System.Drawing.Color.White;
-            this.cboxGrayscale.Location = new System.Drawing.Point(741, 16);
+            this.cboxGrayscale.Location = new System.Drawing.Point(1195, 16);
             this.cboxGrayscale.Name = "cboxGrayscale";
             this.cboxGrayscale.Size = new System.Drawing.Size(218, 55);
             this.cboxGrayscale.TabIndex = 10;
             this.cboxGrayscale.Text = "Grayscale";
             this.cboxGrayscale.UseVisualStyleBackColor = false;
             this.cboxGrayscale.CheckedChanged += new System.EventHandler(this.cboxGrayscale_CheckedChanged);
+            // 
+            // btn_undo
+            // 
+            this.btn_undo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_undo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_undo.Location = new System.Drawing.Point(282, 16);
+            this.btn_undo.Name = "btn_undo";
+            this.btn_undo.Size = new System.Drawing.Size(119, 55);
+            this.btn_undo.TabIndex = 9;
+            this.btn_undo.Text = "Undo";
+            this.btn_undo.UseVisualStyleBackColor = true;
+            // 
+            // btn_mainPage
+            // 
+            this.btn_mainPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_mainPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_mainPage.Location = new System.Drawing.Point(38, 16);
+            this.btn_mainPage.Name = "btn_mainPage";
+            this.btn_mainPage.Size = new System.Drawing.Size(195, 55);
+            this.btn_mainPage.TabIndex = 11;
+            this.btn_mainPage.Text = "Main Page";
+            this.btn_mainPage.UseVisualStyleBackColor = true;
+            this.btn_mainPage.Click += new System.EventHandler(this.btn_mainPage_Click);
             // 
             // Histogram
             // 
@@ -178,5 +207,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox cboxGrayscale;
+        private System.Windows.Forms.Button btn_mainPage;
+        private System.Windows.Forms.Button btn_undo;
     }
 }

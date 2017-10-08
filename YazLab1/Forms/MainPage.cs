@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 using YazLab1.Forms;
 
@@ -8,6 +9,7 @@ namespace YazLab1
     public partial class MainPage : Form
     {
         public static Image selectedImage { get; set; }
+        private string FileName;
         
         public MainPage()
         {
@@ -27,11 +29,48 @@ namespace YazLab1
 
             if (dialogResult == DialogResult.OK)
             {
-                selectedImage = Image.FromFile(openFileDialog.FileName);
+                FileName = openFileDialog.FileName;
+
+                selectedImage = Image.FromFile(FileName);
                 pictureBox.Image = selectedImage;
 
                 lbl_message.Text = "Please select an action";
                 lbl_message.ForeColor = Color.Red;
+
+                #region Image Information
+                var imageWidth = selectedImage.Width;
+                var imageHeight = selectedImage.Height;
+                var imagePixelSum = imageWidth * imageHeight;
+
+                #region İşlem Zaman Tahmini
+                var estimatedProcessTime = "Unknown";
+
+                if (imagePixelSum > 1000000) //One million
+                {
+                    estimatedProcessTime = "High";
+                }
+                else
+                {
+                    estimatedProcessTime = "Low";
+                }
+                #endregion
+
+                StringBuilder stringBuilder = new StringBuilder();
+
+                stringBuilder.Append($"Width: {imageWidth}, Height: {imageHeight}, Estimated Process Time:");
+                lbl_estimatedProcessTime.Text = $"{estimatedProcessTime}";
+                if (lbl_estimatedProcessTime.Text == "High")
+                {
+                    lbl_estimatedProcessTime.ForeColor = Color.Red;
+                    lbl_estimatedProcessTime.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
+                }
+                else
+                {
+                    lbl_estimatedProcessTime.ForeColor = Color.Green;
+                    lbl_estimatedProcessTime.Font = new Font(FontFamily.GenericSansSerif, 11.0F, FontStyle.Regular);
+                }
+                lbl_info.Text = stringBuilder.ToString();
+                #endregion
             }
             else if (dialogResult == DialogResult.Cancel)
             {
