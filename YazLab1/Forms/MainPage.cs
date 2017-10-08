@@ -75,5 +75,14 @@ namespace YazLab1
 
             colorChannelsForm.Show();
         }
+
+        private void btn_grayscale_Click(object sender, EventArgs e)
+        {
+            var grayscaleForm = new Grayscale();
+
+            Hide();
+
+            grayscaleForm.Show();
+        }
     }
 }

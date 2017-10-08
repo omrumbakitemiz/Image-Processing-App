@@ -158,6 +158,7 @@
             this.btn_grayscale.TabIndex = 7;
             this.btn_grayscale.Text = "Grayscale";
             this.btn_grayscale.UseVisualStyleBackColor = true;
+            this.btn_grayscale.Click += new System.EventHandler(this.btn_grayscale_Click);
             // 
             // btn_colorChannels
             // 
