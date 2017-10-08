@@ -66,5 +66,14 @@ namespace YazLab1
 
             mirrorForm.Show();
         }
+
+        private void btn_colorChannels_Click(object sender, EventArgs e)
+        {
+            var colorChannelsForm = new ColorChannels();
+
+            Hide();
+
+            colorChannelsForm.Show();
+        }
     }
 }

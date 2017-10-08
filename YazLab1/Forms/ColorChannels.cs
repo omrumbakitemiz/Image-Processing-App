@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace YazLab1
 {
     public partial class ColorChannels : Form
     {
+        private Image image;
         public ColorChannels()
         {
             InitializeComponent();
@@ -21,13 +15,18 @@ namespace YazLab1
             WindowState = FormWindowState.Maximized;
             #endregion
 
-            var image = Image.FromFile(@"C://image5.jpg");
+            image = MainPage.selectedImage;
 
+            pbox_mainImage.Image = image;
+        }
+
+        private void btn_colorChannels_Click(object sender, System.EventArgs e)
+        {
             var colorChannelList = ImageEdit.ColorChannels(image);
 
-            redColorChannel.Image = colorChannelList[0];
-            greenColorChannel.Image = colorChannelList[1];
-            blueColorChannel.Image = colorChannelList[2];
+            pbox_redColorChannel.Image = colorChannelList[0];
+            pbox_greenColorChannel.Image = colorChannelList[1];
+            pbox_blueColorChannel.Image = colorChannelList[2];
         }
     }
 }

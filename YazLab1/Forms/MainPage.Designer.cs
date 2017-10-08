@@ -172,6 +172,7 @@
             this.btn_colorChannels.TabIndex = 8;
             this.btn_colorChannels.Text = "Color Channels";
             this.btn_colorChannels.UseVisualStyleBackColor = true;
+            this.btn_colorChannels.Click += new System.EventHandler(this.btn_colorChannels_Click);
             // 
             // tableLayoutPanel1
             // 
