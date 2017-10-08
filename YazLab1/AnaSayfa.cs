@@ -13,13 +13,13 @@ namespace YazLab1
         public AnaSayfa()
         {
             InitializeComponent();
-        }
 
-        private void Mirror()
-        {
-            pictureBox2.Image = ImageEdit.Mirror(pictureBox1.Image);
+            #region Form Tasarım Ayarları
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            WindowState = FormWindowState.Maximized; 
+            #endregion
         }
-
+        
         private static void Negative()
         {
             var image = Image.FromFile(@"C://image7.jpg");
@@ -27,14 +27,18 @@ namespace YazLab1
         }
         private void btn_Mirror_Click(object sender, EventArgs e)
         {
-            Mirror();
+            pictureBox2.Image = ImageEdit.Mirror(pictureBox1.Image);
         }
 
         private void btn_fileOpen_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = OpenFile();
         }
-
+        
+        private void btn_grayscale_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = ImageEdit.Grayscale(pictureBox1.Image);
+        }
         private Image OpenFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -46,6 +50,15 @@ namespace YazLab1
             }
 
             return image;
+        }
+
+        private void btn_colorChannels_Click(object sender, EventArgs e)
+        {
+            var colorChannelsForm = new ColorChannels();
+
+            Hide();
+
+            colorChannelsForm.Show();
         }
     }
 }

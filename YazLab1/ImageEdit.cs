@@ -112,5 +112,63 @@ namespace YazLab1
 
             return oldBitmap;
         }
+
+        public static Bitmap Grayscale(Image image)
+        {
+            Bitmap bitmap = new Bitmap(image);
+
+            int red, green, blue, average;
+
+            for (int x = 0; x < bitmap.Width; x++)
+            {
+                for (int y = 0; y < bitmap.Height; y++)
+                {
+                    Color pixel = bitmap.GetPixel(x, y);
+
+                    red = pixel.R;
+                    green = pixel.G;
+                    blue = pixel.B;
+                    average = (red + green + blue) / 3;
+                    bitmap.SetPixel(x, y, Color.FromArgb(average, average, average));
+                }
+            }
+
+            return bitmap;
+        }
+
+        /// <summary>
+        /// Bu metod parametre olarak aldığı resmin renk kanallarının listesini döndürür.
+        /// </summary>
+        /// <returns></returns>
+        public static List<Bitmap> ColorChannels(Image image)
+        {
+            List<Bitmap> channelsList = new List<Bitmap>();
+            Bitmap bitmap = new Bitmap(image);
+
+            var width = image.Width;
+            var height = image.Height;
+            
+            Bitmap bitmap1 = new Bitmap(width, height);
+            Bitmap bitmap2 = new Bitmap(width, height);
+            Bitmap bitmap3 = new Bitmap(width, height);
+
+            for (int x = 0; x < bitmap.Width; x++)
+            {
+                for (int y = 0; y < bitmap.Height; y++)
+                {
+                    Color pixel = bitmap.GetPixel(x, y);
+                    
+                    bitmap1.SetPixel(x, y, Color.FromArgb(pixel.R, 0, 0));
+                    bitmap2.SetPixel(x, y, Color.FromArgb(0, pixel.G, 0));
+                    bitmap3.SetPixel(x, y, Color.FromArgb(0, 0, pixel.B));
+
+                    channelsList.Add(bitmap1);
+                    channelsList.Add(bitmap2);
+                    channelsList.Add(bitmap3);
+                }
+            }
+
+            return channelsList;
+        }
     }
 }
