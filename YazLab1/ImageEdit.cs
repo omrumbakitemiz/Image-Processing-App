@@ -16,6 +16,7 @@ namespace YazLab1
             int[] red = new int[256];
             int[] green = new int[256];
             int[] blue = new int[256];
+            int[] grayscale = new int[256];
             int[] histogram = new int[256];
 
             Image image = Image.FromFile(@"C:/image5.jpg");
@@ -28,10 +29,14 @@ namespace YazLab1
                 for (int y = 0; y < bitmap.Size.Height; y++)
                 {
                     var pixel = bitmap.GetPixel(x, y);
-
+                    
                     red[pixel.R]++;
                     green[pixel.G]++;
                     blue[pixel.B]++;
+
+                    var grayscalePixel = (pixel.R + pixel.G + pixel.B) / 3; //grayscale pixel calc
+                    grayscale[grayscalePixel]++;
+
                 }
             }
 
@@ -50,7 +55,7 @@ namespace YazLab1
 
             avgColors = (avgRed + avgGreen + avgBlue) / 3;
 
-            return (new List<int[]> { red, green, blue }, avgColors);
+            return (new List<int[]> { red, green, blue, grayscale }, avgColors);
         }
 
         /// <summary>
@@ -58,7 +63,6 @@ namespace YazLab1
         /// </summary>
         public static Bitmap Negative(Image image)
         {
-            image = Image.FromFile(@"C:/image1.jpg");
             Bitmap bitmap = new Bitmap(image);
 
             for (int x = 0; x < bitmap.Width; x++)

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -16,12 +11,18 @@ namespace YazLab1
         private Series redSeries;
         private Series greenSeries;
         private Series blueSeries;
+        private Series grayscaleSeries;
 
         public Histogram()
         {
             InitializeComponent();
 
-            //DrawChart();
+            #region Form Tasarım Ayarları
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            WindowState = FormWindowState.Maximized;
+            #endregion
+            
+            DrawChart();
         }
         private void DrawChart()
         {
@@ -33,13 +34,16 @@ namespace YazLab1
             redSeries = new Series("red");
             greenSeries = new Series("green");
             blueSeries = new Series("blue");
+            grayscaleSeries = new Series("grayscale");
 
             for (int i = 0; i < 255; i++)
             {
                 redSeries.Points.AddXY(i, histogramData.histogramValues.ElementAt(0)[i]);
                 greenSeries.Points.AddXY(i, histogramData.histogramValues.ElementAt(1)[i]);
                 blueSeries.Points.AddXY(i, histogramData.histogramValues.ElementAt(2)[i]);
+                grayscaleSeries.Points.AddXY(i, histogramData.histogramValues.ElementAt(3)[i]);
             }
+
         }
         private void cboxRed_CheckedChanged(object sender, EventArgs e)
         {
@@ -51,6 +55,7 @@ namespace YazLab1
             {
                 chartHistogram.Series.Add(redSeries);
 
+                chartHistogram.Series["red"].ChartType = SeriesChartType.Column;
                 chartHistogram.Series["red"].Color = Color.Red;
             }
         }
@@ -64,6 +69,7 @@ namespace YazLab1
             {
                 chartHistogram.Series.Add(greenSeries);
 
+                chartHistogram.Series["green"].ChartType = SeriesChartType.Column;
                 chartHistogram.Series["green"].Color = Color.Green;
             }
         }
@@ -77,7 +83,23 @@ namespace YazLab1
             {
                 chartHistogram.Series.Add(blueSeries);
 
+                chartHistogram.Series["blue"].ChartType = SeriesChartType.Column;
                 chartHistogram.Series["blue"].Color = Color.Blue;
+            }
+        }
+
+        private void cboxGrayscale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chartHistogram.Series.Contains(grayscaleSeries))
+            {
+                chartHistogram.Series.Remove(grayscaleSeries);
+            }
+            else
+            {
+                chartHistogram.Series.Add(grayscaleSeries);
+
+                chartHistogram.Series["grayscale"].ChartType = SeriesChartType.Column;
+                chartHistogram.Series["grayscale"].Color = Color.DarkGray;
             }
         }
     }
