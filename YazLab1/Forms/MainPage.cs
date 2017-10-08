@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using YazLab1.Forms;
 
 namespace YazLab1
 {
@@ -55,6 +56,15 @@ namespace YazLab1
             Hide();
 
             negativeForm.Show();
+        }
+
+        private void btn_mirror_Click(object sender, EventArgs e)
+        {
+            var mirrorForm = new Mirror();
+
+            Hide();
+
+            mirrorForm.Show();
         }
     }
 }

@@ -101,6 +101,7 @@
             this.btn_mirror.TabIndex = 3;
             this.btn_mirror.Text = "Mirror";
             this.btn_mirror.UseVisualStyleBackColor = true;
+            this.btn_mirror.Click += new System.EventHandler(this.btn_mirror_Click);
             // 
             // btn_rotate
             // 
@@ -251,7 +252,7 @@
             this.ClientSize = new System.Drawing.Size(1804, 1211);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainPage";
