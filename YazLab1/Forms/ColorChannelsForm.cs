@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace YazLab1
 {
-    public partial class ColorChannels : Form
+    public partial class ColorChannelsForm : Form
     {
         private Image image;
-        public ColorChannels()
+        public ColorChannelsForm()
         {
             InitializeComponent();
 
@@ -15,7 +15,7 @@ namespace YazLab1
             WindowState = FormWindowState.Maximized;
             #endregion
 
-            image = MainPage.selectedImage;
+            image = MainPageForm.SelectedImage;
 
             pbox_mainImage.Image = image;
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace YazLab1
@@ -169,6 +170,60 @@ namespace YazLab1
             }
 
             return channelsList;
+        }
+
+        public static Bitmap Rotate(Image image)
+        {
+            var transposedImage = (Image)Transpose(image);
+            var reversedImage = Mirror(transposedImage);
+            
+            return reversedImage;
+        }
+
+        public static Bitmap Transpose(Image image)
+        {
+            Bitmap bitmap = new Bitmap(image);
+            Bitmap newBitmap = new Bitmap(image.Height, image.Width);
+
+            var width = bitmap.Width;
+            var height = bitmap.Height;
+            
+            for (int row = 0; row < height; row++)
+            {
+                for (int column = 0; column < width; column++)
+                {
+                    newBitmap.SetPixel(row, column, bitmap.GetPixel(column, row));
+                }
+            }
+            return newBitmap;
+        }
+        public static string[,] Transpose(string[,] matrix)
+        {
+            var newMatrix = new string[2,9];
+
+            for (int row = 0; row < 9; row++)
+            {
+                for (int column = 0; column < 2; column++)
+                {
+                    newMatrix[column, row] = matrix[row, column];
+                }
+            }
+
+            return newMatrix;
+        }
+        public static string[,] ReverseRows(string[,] matrix)
+        {
+            var newMatrix = new string[2, 9];
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j/2 <= 2 / 2; j++)
+                {
+                    newMatrix[2 - 1 - j, i] = matrix[i, j];
+                }
+            }
+
+            return newMatrix;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace YazLab1
 {
-    public partial class Histogram : Form
+    public partial class HistogramForm : Form
     {
         private Series redSeries;
         private Series greenSeries;
@@ -14,7 +14,7 @@ namespace YazLab1
         private Series grayscaleSeries;
         private Image image;
 
-        public Histogram()
+        public HistogramForm()
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace YazLab1
             WindowState = FormWindowState.Maximized;
             #endregion
 
-            image = MainPage.selectedImage;
+            image = MainPageForm.SelectedImage;
 
             CalculateChart();
 
@@ -108,7 +108,7 @@ namespace YazLab1
 
         private void btn_mainPage_Click(object sender, EventArgs e)
         {
-            var mainPage = new MainPage();
+            var mainPage = new MainPageForm();
 
             Hide();
             

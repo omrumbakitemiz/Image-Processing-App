@@ -1,6 +1,6 @@
 ﻿namespace YazLab1
 {
-    partial class Histogram
+    partial class HistogramForm
     {
         /// <summary>
         /// Required designer variable.

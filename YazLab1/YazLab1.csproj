@@ -64,62 +64,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\ColorChannels.cs">
+    <Compile Include="Forms\ColorChannelsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ColorChannels.Designer.cs">
-      <DependentUpon>ColorChannels.cs</DependentUpon>
+    <Compile Include="Forms\ColorChannelsForm.Designer.cs">
+      <DependentUpon>ColorChannelsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Grayscale.cs">
+    <Compile Include="Forms\Temp\Grayscale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Grayscale.Designer.cs">
+    <Compile Include="Forms\Temp\Grayscale.Designer.cs">
       <DependentUpon>Grayscale.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Histogram.cs">
+    <Compile Include="Forms\HistogramForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Histogram.Designer.cs">
-      <DependentUpon>Histogram.cs</DependentUpon>
+    <Compile Include="Forms\HistogramForm.Designer.cs">
+      <DependentUpon>HistogramForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Mirror.cs">
+    <Compile Include="Forms\Temp\Mirror.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Mirror.Designer.cs">
+    <Compile Include="Forms\Temp\Mirror.Designer.cs">
       <DependentUpon>Mirror.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Temp\Rotate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Temp\Rotate.Designer.cs">
+      <DependentUpon>Rotate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImageEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImageEditForm.Designer.cs">
+      <DependentUpon>ImageEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Library\ImageEdit.cs" />
-    <Compile Include="Forms\MainPage.cs">
+    <Compile Include="Forms\MainPageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="Forms\MainPageForm.Designer.cs">
+      <DependentUpon>MainPageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Negative.cs">
+    <Compile Include="Forms\Temp\Negative.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Negative.Designer.cs">
+    <Compile Include="Forms\Temp\Negative.Designer.cs">
       <DependentUpon>Negative.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ColorChannels.resx">
-      <DependentUpon>ColorChannels.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ColorChannelsForm.resx">
+      <DependentUpon>ColorChannelsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Grayscale.resx">
+    <EmbeddedResource Include="Forms\Temp\Grayscale.resx">
       <DependentUpon>Grayscale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Histogram.resx">
-      <DependentUpon>Histogram.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\HistogramForm.resx">
+      <DependentUpon>HistogramForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainPageForm.resx">
+      <DependentUpon>MainPageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Mirror.resx">
+    <EmbeddedResource Include="Forms\Temp\Mirror.resx">
       <DependentUpon>Mirror.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Negative.resx">
+    <EmbeddedResource Include="Forms\Temp\Negative.resx">
       <DependentUpon>Negative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Temp\Rotate.resx">
+      <DependentUpon>Rotate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImageEditForm.resx">
+      <DependentUpon>ImageEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

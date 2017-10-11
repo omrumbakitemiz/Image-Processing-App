@@ -16,7 +16,7 @@ namespace YazLab1.Forms
             WindowState = FormWindowState.Maximized;
             #endregion
 
-            image = MainPage.selectedImage;
+            image = MainPageForm.SelectedImage;
 
             pictureBox1.Image = image;
         }

@@ -1,6 +1,6 @@
 ﻿namespace YazLab1
 {
-    partial class ColorChannels
+    partial class ColorChannelsForm
     {
         /// <summary>
         /// Required designer variable.

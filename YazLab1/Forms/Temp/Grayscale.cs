@@ -22,7 +22,7 @@ namespace YazLab1.Forms
             WindowState = FormWindowState.Maximized;
             #endregion
 
-            image = MainPage.selectedImage;
+            image = MainPageForm.SelectedImage;
             pbox_normal.Image = image;
         }
 
