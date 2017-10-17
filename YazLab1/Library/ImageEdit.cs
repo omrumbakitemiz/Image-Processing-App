@@ -225,5 +225,24 @@ namespace YazLab1
 
             return newMatrix;
         }
+
+        public static Bitmap Scale(Image image, double rate)
+        {
+            Size oldSize = image.Size;
+            Size newSize = Size.Empty;
+
+            if (rate > 0)
+            {
+                var height = Convert.ToDouble(oldSize.Height) * (rate / 100.0);
+                var width = Convert.ToDouble(oldSize.Width) * (rate / 100.0);
+
+                newSize.Height = Convert.ToInt32(height);
+                newSize.Width = Convert.ToInt32(width);
+            }
+
+            Bitmap bitmap = new Bitmap(image, newSize);
+
+            return bitmap;
+        }
     }
 }

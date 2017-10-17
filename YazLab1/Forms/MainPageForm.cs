@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 using YazLab1.Forms;
@@ -19,6 +20,28 @@ namespace YazLab1
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             WindowState = FormWindowState.Maximized;
             #endregion
+
+            //var image = ImageEditForm.selectedImage;
+            //if (image != null)
+            //{
+            //    pictureBox.Image = image;
+            //}
+        }
+        
+        private void OpenImageEditForm()
+        {
+            if (FileName == null)
+            {
+                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var imageEditForm = new ImageEditForm();
+
+                Hide();
+
+                imageEditForm.Show();
+            }
         }
 
         private void OpenFile()
@@ -110,8 +133,23 @@ namespace YazLab1
                 colorChannelsForm.Show();
             }
         }
-        
+
         #region Click Events
+        private void OpenImageEditForm(object sender, EventArgs e)
+        {
+            if (FileName == null)
+            {
+                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var imageEditForm = new ImageEditForm();
+
+                Hide();
+
+                imageEditForm.Show();
+            }
+        }
 
         private void btn_fileOpen_Click(object sender, EventArgs e)
         {
@@ -130,7 +168,7 @@ namespace YazLab1
 
         private void toolStripMenuItem_exit_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Application will be closed, Are you sure?", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var dialogResult = MessageBox.Show("Application will be closed, Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -138,36 +176,29 @@ namespace YazLab1
             }
         }
 
+        private void btn_scale_Click(object sender, EventArgs e)
+        {
+            OpenImageEditForm();
+        }
+
         private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tempForm = new ImageEditForm();
-
-            Hide();
-            tempForm.Show();
+            OpenImageEditForm();
         }
 
         private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tempForm = new ImageEditForm();
-
-            Hide();
-            tempForm.Show();
+            OpenImageEditForm();
         }
 
         private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tempForm = new ImageEditForm();
-
-            Hide();
-            tempForm.Show();
+            OpenImageEditForm();
         }
 
         private void negativeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tempForm = new ImageEditForm();
-
-            Hide();
-            tempForm.Show();
+            OpenImageEditForm();
         }
 
         private void scaleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,25 +224,15 @@ namespace YazLab1
             OpenFile();
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //SaveFile();
-        }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //SaveFileAs();
-        }
-
-        private void reopenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ReOpen();
-        }
-
         private void toolStripMenuItem_suprise_Click(object sender, EventArgs e)
         {
             //Suprise();
         }
         #endregion
+
+        private void btn_reopen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

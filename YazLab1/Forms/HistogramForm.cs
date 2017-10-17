@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using YazLab1.Forms;
 
 namespace YazLab1
 {
@@ -27,6 +28,20 @@ namespace YazLab1
 
             CalculateChart();
 
+        }
+
+        public HistogramForm(Image image)
+        {
+            InitializeComponent();
+
+            #region Form Tasarım Ayarları
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            WindowState = FormWindowState.Maximized;
+            #endregion
+
+            this.image = image;
+            
+            CalculateChart();
         }
         private void CalculateChart()
         {
@@ -113,6 +128,15 @@ namespace YazLab1
             Hide();
             
             mainPage.Show();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            var imageEditForm = new ImageEditForm(image);
+
+            Hide();
+
+            imageEditForm.Show();
         }
     }
 }

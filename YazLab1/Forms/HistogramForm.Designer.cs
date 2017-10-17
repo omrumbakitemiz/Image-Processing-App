@@ -35,9 +35,9 @@
             this.chartHistogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboxGrayscale = new System.Windows.Forms.CheckBox();
-            this.btn_undo = new System.Windows.Forms.Button();
             this.btn_mainPage = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.cboxGrayscale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -129,7 +129,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.btn_mainPage, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_undo, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_back, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.cboxGrayscale, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.cboxRed, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.cboxGreen, 3, 0);
@@ -141,6 +141,30 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1432, 87);
             this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // btn_mainPage
+            // 
+            this.btn_mainPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_mainPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_mainPage.Location = new System.Drawing.Point(38, 16);
+            this.btn_mainPage.Name = "btn_mainPage";
+            this.btn_mainPage.Size = new System.Drawing.Size(195, 55);
+            this.btn_mainPage.TabIndex = 11;
+            this.btn_mainPage.Text = "Main Page";
+            this.btn_mainPage.UseVisualStyleBackColor = true;
+            this.btn_mainPage.Click += new System.EventHandler(this.btn_mainPage_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_back.Location = new System.Drawing.Point(282, 16);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(119, 55);
+            this.btn_back.TabIndex = 9;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // cboxGrayscale
             // 
@@ -157,37 +181,14 @@
             this.cboxGrayscale.UseVisualStyleBackColor = false;
             this.cboxGrayscale.CheckedChanged += new System.EventHandler(this.cboxGrayscale_CheckedChanged);
             // 
-            // btn_undo
-            // 
-            this.btn_undo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_undo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_undo.Location = new System.Drawing.Point(282, 16);
-            this.btn_undo.Name = "btn_undo";
-            this.btn_undo.Size = new System.Drawing.Size(119, 55);
-            this.btn_undo.TabIndex = 9;
-            this.btn_undo.Text = "Undo";
-            this.btn_undo.UseVisualStyleBackColor = true;
-            // 
-            // btn_mainPage
-            // 
-            this.btn_mainPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_mainPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_mainPage.Location = new System.Drawing.Point(38, 16);
-            this.btn_mainPage.Name = "btn_mainPage";
-            this.btn_mainPage.Size = new System.Drawing.Size(195, 55);
-            this.btn_mainPage.TabIndex = 11;
-            this.btn_mainPage.Text = "Main Page";
-            this.btn_mainPage.UseVisualStyleBackColor = true;
-            this.btn_mainPage.Click += new System.EventHandler(this.btn_mainPage_Click);
-            // 
-            // Histogram
+            // HistogramForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1508, 1031);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Histogram";
+            this.Name = "HistogramForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Histogram";
             ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).EndInit();
@@ -208,6 +209,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox cboxGrayscale;
         private System.Windows.Forms.Button btn_mainPage;
-        private System.Windows.Forms.Button btn_undo;
+        private System.Windows.Forms.Button btn_back;
     }
 }
