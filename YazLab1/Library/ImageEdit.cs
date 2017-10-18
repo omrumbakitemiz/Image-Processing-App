@@ -31,7 +31,7 @@ namespace YazLab1
                     green[pixel.G]++;
                     blue[pixel.B]++;
 
-                    var grayscalePixel = (pixel.R + pixel.G + pixel.B) / 3; //grayscale pixel calc
+                    var grayscalePixel = (pixel.R + pixel.G + pixel.B) / 3;
                     grayscale[grayscalePixel]++;
 
                 }
@@ -174,9 +174,9 @@ namespace YazLab1
 
         public static Bitmap Rotate(Image image)
         {
-            var transposedImage = (Image)Transpose(image);
+            var transposedImage = Transpose(image);
             var reversedImage = Mirror(transposedImage);
-            
+
             return reversedImage;
         }
 
@@ -197,6 +197,7 @@ namespace YazLab1
             }
             return newBitmap;
         }
+
         public static string[,] Transpose(string[,] matrix)
         {
             var newMatrix = new string[2,9];
@@ -211,6 +212,7 @@ namespace YazLab1
 
             return newMatrix;
         }
+
         public static string[,] ReverseRows(string[,] matrix)
         {
             var newMatrix = new string[2, 9];

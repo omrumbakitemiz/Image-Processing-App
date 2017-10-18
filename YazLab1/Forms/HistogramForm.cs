@@ -120,10 +120,9 @@ namespace YazLab1
                 chartHistogram.Series["grayscale"].Color = Color.DarkGray;
             }
         }
-
         private void btn_back_Click(object sender, EventArgs e)
         {
-            var imageEditForm = new ImageEditForm(image);
+            var imageEditForm = new ImageEditForm();
 
             Hide();
 
