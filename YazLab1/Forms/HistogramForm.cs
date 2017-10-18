@@ -121,15 +121,6 @@ namespace YazLab1
             }
         }
 
-        private void btn_mainPage_Click(object sender, EventArgs e)
-        {
-            var mainPage = new MainPageForm();
-
-            Hide();
-            
-            mainPage.Show();
-        }
-
         private void btn_back_Click(object sender, EventArgs e)
         {
             var imageEditForm = new ImageEditForm(image);

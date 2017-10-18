@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.cboxBlue = new System.Windows.Forms.CheckBox();
             this.cboxGreen = new System.Windows.Forms.CheckBox();
             this.cboxRed = new System.Windows.Forms.CheckBox();
             this.chartHistogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_mainPage = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.cboxGrayscale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
@@ -50,7 +49,7 @@
             this.cboxBlue.BackColor = System.Drawing.Color.Blue;
             this.cboxBlue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxBlue.ForeColor = System.Drawing.Color.White;
-            this.cboxBlue.Location = new System.Drawing.Point(985, 16);
+            this.cboxBlue.Location = new System.Drawing.Point(936, 16);
             this.cboxBlue.Name = "cboxBlue";
             this.cboxBlue.Size = new System.Drawing.Size(129, 55);
             this.cboxBlue.TabIndex = 6;
@@ -65,7 +64,7 @@
             this.cboxGreen.BackColor = System.Drawing.Color.ForestGreen;
             this.cboxGreen.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxGreen.ForeColor = System.Drawing.Color.White;
-            this.cboxGreen.Location = new System.Drawing.Point(716, 16);
+            this.cboxGreen.Location = new System.Drawing.Point(636, 16);
             this.cboxGreen.Name = "cboxGreen";
             this.cboxGreen.Size = new System.Drawing.Size(157, 55);
             this.cboxGreen.TabIndex = 5;
@@ -80,7 +79,7 @@
             this.cboxRed.BackColor = System.Drawing.Color.Red;
             this.cboxRed.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxRed.ForeColor = System.Drawing.Color.White;
-            this.cboxRed.Location = new System.Drawing.Point(479, 16);
+            this.cboxRed.Location = new System.Drawing.Point(369, 16);
             this.cboxRed.Name = "cboxRed";
             this.cboxRed.Size = new System.Drawing.Size(120, 55);
             this.cboxRed.TabIndex = 4;
@@ -94,8 +93,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chartHistogram.BackColor = System.Drawing.Color.Silver;
-            chartArea2.Name = "ChartArea1";
-            this.chartHistogram.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartHistogram.ChartAreas.Add(chartArea1);
             this.chartHistogram.Location = new System.Drawing.Point(3, 3);
             this.chartHistogram.Name = "chartHistogram";
             this.chartHistogram.Size = new System.Drawing.Size(1502, 908);
@@ -121,19 +120,17 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 272F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.btn_mainPage, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_back, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxGrayscale, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxRed, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxGreen, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.cboxBlue, 4, 0);
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.btn_back, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxGrayscale, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxRed, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxGreen, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboxBlue, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(38, 929);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -142,23 +139,11 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1432, 87);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // btn_mainPage
-            // 
-            this.btn_mainPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_mainPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_mainPage.Location = new System.Drawing.Point(38, 16);
-            this.btn_mainPage.Name = "btn_mainPage";
-            this.btn_mainPage.Size = new System.Drawing.Size(195, 55);
-            this.btn_mainPage.TabIndex = 11;
-            this.btn_mainPage.Text = "Main Page";
-            this.btn_mainPage.UseVisualStyleBackColor = true;
-            this.btn_mainPage.Click += new System.EventHandler(this.btn_mainPage_Click);
-            // 
             // btn_back
             // 
             this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_back.Location = new System.Drawing.Point(282, 16);
+            this.btn_back.Location = new System.Drawing.Point(83, 16);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(119, 55);
             this.btn_back.TabIndex = 9;
@@ -173,7 +158,7 @@
             this.cboxGrayscale.BackColor = System.Drawing.Color.LightSlateGray;
             this.cboxGrayscale.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cboxGrayscale.ForeColor = System.Drawing.Color.White;
-            this.cboxGrayscale.Location = new System.Drawing.Point(1195, 16);
+            this.cboxGrayscale.Location = new System.Drawing.Point(1179, 16);
             this.cboxGrayscale.Name = "cboxGrayscale";
             this.cboxGrayscale.Size = new System.Drawing.Size(218, 55);
             this.cboxGrayscale.TabIndex = 10;
@@ -208,7 +193,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox cboxGrayscale;
-        private System.Windows.Forms.Button btn_mainPage;
         private System.Windows.Forms.Button btn_back;
     }
 }
