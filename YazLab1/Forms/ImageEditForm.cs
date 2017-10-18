@@ -201,6 +201,7 @@ namespace YazLab1.Forms
             //pbox_edited.Image = imageStack.Peek();
 
             pbox_original.Image = originalImage;
+            pbox_edited.Image = originalImage;
         }
         private void toolStripMenuItem_histogram_Click(object sender, EventArgs e)
         {

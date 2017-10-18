@@ -47,6 +47,8 @@ namespace YazLab1
         private void OpenFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFileDialog.Title = "Lütfen bir resim dosyası seçin";
 
             var dialogResult = openFileDialog.ShowDialog();
 
