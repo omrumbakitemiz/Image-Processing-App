@@ -40,7 +40,34 @@ namespace YazLab1
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            var imageEditForm = new ImageEditForm(pbox_mainImage.Image);
+            var imageEditForm = new ImageEditForm();
+
+            Hide();
+
+            imageEditForm.Show();
+        }
+
+        private void btn_pickRedChannel_Click(object sender, EventArgs e)
+        {
+            var imageEditForm = new ImageEditForm(pbox_redColorChannel.Image);
+
+            Hide();
+
+            imageEditForm.Show();
+        }
+
+        private void btn_pickGreenChannel_Click(object sender, EventArgs e)
+        {
+            var imageEditForm = new ImageEditForm(pbox_greenColorChannel.Image);
+
+            Hide();
+
+            imageEditForm.Show();
+        }
+
+        private void btn_pickBlueChannel_Click(object sender, EventArgs e)
+        {
+            var imageEditForm = new ImageEditForm(pbox_blueColorChannel.Image);
 
             Hide();
 

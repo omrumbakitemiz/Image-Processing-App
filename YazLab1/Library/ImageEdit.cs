@@ -6,6 +6,9 @@ namespace YazLab1
 {
     public static class ImageEdit
     {
+        public static Stack<Image> imageStack = new Stack<Image>();
+        public static Image originalImage;
+        public static Image editedImage;
         /// <summary>
         /// Bu metod parametre olarak aldığı resmin histogram değerlerini List<int[]> şeklinde ve histogram değerlerinin ortalamasını döndürür.
         /// </summary>

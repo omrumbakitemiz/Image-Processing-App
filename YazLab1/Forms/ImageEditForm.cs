@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -9,7 +8,6 @@ namespace YazLab1.Forms
     public partial class ImageEditForm : Form
     {
         private Image originalImage = MainPageForm.SelectedImage;
-        private Stack<Image> imageStack = new Stack<Image>();
         private bool firstChoise = false;
         public ImageEditForm()
         {
@@ -21,6 +19,8 @@ namespace YazLab1.Forms
             #endregion
 
             pbox_original.Image = MainPageForm.SelectedImage;
+            pbox_edited.Image = ImageEdit.editedImage;
+            ImageEdit.originalImage = MainPageForm.SelectedImage;
         }
 
         public ImageEditForm(Image image)
@@ -44,8 +44,9 @@ namespace YazLab1.Forms
 
                 firstChoise = true;
             }
-
-            imageStack.Push(pbox_edited.Image);
+            
+            ImageEdit.imageStack.Push(pbox_edited.Image);
+            ImageEdit.editedImage = pbox_edited.Image;
             pbox_edited.Image = ImageEdit.Grayscale(pbox_edited.Image);
         }
 
@@ -57,8 +58,9 @@ namespace YazLab1.Forms
 
                 firstChoise = true;
             }
-
-            imageStack.Push(pbox_edited.Image);
+            
+            ImageEdit.imageStack.Push(pbox_edited.Image);
+            ImageEdit.editedImage = pbox_edited.Image;
             pbox_edited.Image = ImageEdit.Rotate(pbox_edited.Image);
         }
 
@@ -70,8 +72,9 @@ namespace YazLab1.Forms
 
                 firstChoise = true;
             }
-
-            imageStack.Push(pbox_edited.Image);
+            
+            ImageEdit.imageStack.Push(pbox_edited.Image);
+            ImageEdit.editedImage = pbox_edited.Image;
             pbox_edited.Image = ImageEdit.Mirror(pbox_edited.Image);
         }
 
@@ -87,8 +90,9 @@ namespace YazLab1.Forms
 
                     firstChoise = true;
                 }
-
-                imageStack.Push(pbox_edited.Image);
+                
+                ImageEdit.imageStack.Push(pbox_edited.Image);
+                ImageEdit.editedImage = pbox_edited.Image;
 
                 pbox_edited.Image = ImageEdit.Scale(pbox_edited.Image, scaleRate);
                 pbox_edited.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -108,20 +112,21 @@ namespace YazLab1.Forms
 
                 firstChoise = true;
             }
-
-            imageStack.Push(pbox_edited.Image);
+            
+            ImageEdit.imageStack.Push(pbox_edited.Image);
+            ImageEdit.editedImage = pbox_edited.Image;
             pbox_edited.Image = ImageEdit.Negative(pbox_edited.Image);
         }
 
         private void btn_undo_Click(object sender, EventArgs e)
         {
-            if (imageStack.Count == 0)
+            if (ImageEdit.imageStack.Count == 0)
             {
-                MessageBox.Show("You cannot undo!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Daha fazla geri alamazsınız!!!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                pbox_edited.Image = imageStack.Pop();
+                pbox_edited.Image = ImageEdit.imageStack.Pop();
             }
         }
 
@@ -135,17 +140,7 @@ namespace YazLab1.Forms
 
         private void toolStripMenuItem_exit_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Application will be closed, Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void toolStripMenuItem_suprise_Click(object sender, EventArgs e)
-        {
-            //Suprise();
+            Application.Exit();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,10 +176,10 @@ namespace YazLab1.Forms
                 }
                 else if (fileDialog == DialogResult.Cancel)
                 {
-                    MessageBox.Show("Please select save location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen kayıt yeri seçin", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                MessageBox.Show("File saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Dosya kaydedildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception exception)
             {
@@ -194,15 +189,10 @@ namespace YazLab1.Forms
 
         private void reopenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //for (int i = 0; i < imageStack.Count - 1; i++)
-            //{
-            //    imageStack.Pop();
-            //}
-            //pbox_edited.Image = imageStack.Peek();
-
             pbox_original.Image = originalImage;
             pbox_edited.Image = originalImage;
         }
+
         private void toolStripMenuItem_histogram_Click(object sender, EventArgs e)
         {
             if (pbox_edited.Image == null)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 using YazLab1.Forms;
@@ -20,34 +19,12 @@ namespace YazLab1
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             WindowState = FormWindowState.Maximized;
             #endregion
-
-            //var image = ImageEditForm.selectedImage;
-            //if (image != null)
-            //{
-            //    pictureBox.Image = image;
-            //}
         }
-        
-        private void OpenImageEditForm()
-        {
-            if (FileName == null)
-            {
-                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                var imageEditForm = new ImageEditForm();
-
-                Hide();
-
-                imageEditForm.Show();
-            }
-        }
-
+       
         private void OpenFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png, *.ico) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png, *.ico";
+            openFileDialog.Filter = "Resim Dosyaları (*.jpg, *.jpeg, *.jpe, *.jfif, *.png, *.ico) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png, *.ico";
             openFileDialog.Title = "Lütfen bir resim dosyası seçin";
 
             var dialogResult = openFileDialog.ShowDialog();
@@ -59,7 +36,6 @@ namespace YazLab1
                 SelectedImage = Image.FromFile(FileName);
                 pictureBox.Image = SelectedImage;
 
-                lbl_message.Text = "Please select an action";
                 lbl_message.ForeColor = Color.Red;
 
                 #region Image Information
@@ -68,23 +44,23 @@ namespace YazLab1
                 var imagePixelSum = imageWidth * imageHeight;
 
                 #region İşlem Zaman Tahmini
-                var estimatedProcessTime = "Unknown";
+                var estimatedProcessTime = "Bilinmiyor";
 
                 if (imagePixelSum > 1000000) //One million
                 {
-                    estimatedProcessTime = "High";
+                    estimatedProcessTime = "Yüksek";
                 }
                 else
                 {
-                    estimatedProcessTime = "Low";
+                    estimatedProcessTime = "Düşük";
                 }
                 #endregion
 
                 StringBuilder stringBuilder = new StringBuilder();
 
-                stringBuilder.Append($"Width: {imageWidth}, Height: {imageHeight}, Estimated Process Time:");
+                stringBuilder.Append($"Genişlik: {imageWidth}, Yükşeklik: {imageHeight}, Tahmini işlem süresi:");
                 lbl_estimatedProcessTime.Text = $"{estimatedProcessTime}";
-                if (lbl_estimatedProcessTime.Text == "High")
+                if (lbl_estimatedProcessTime.Text == "Yüksek")
                 {
                     lbl_estimatedProcessTime.ForeColor = Color.Red;
                     lbl_estimatedProcessTime.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
@@ -99,49 +75,33 @@ namespace YazLab1
             }
             else if (dialogResult == DialogResult.Cancel)
             {
-                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void OpenHistogramForm()
-        {
-            if (FileName == null)
-            {
-                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                var histogramForm = new HistogramForm();
-
-                Hide();
-
-                histogramForm.Show();
-            }
-        }
-        
-        private void OpenColorChannelsForm()
-        {
-            if (FileName == null)
-            {
-                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            else
-            {
-                var colorChannelsForm = new ColorChannelsForm();
-
-                Hide();
-
-                colorChannelsForm.Show();
+                MessageBox.Show("Lütfen resim seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         #region Click Events
+
+        private void btn_fileOpen_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void toolStripMenuItem_exit_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Uygulamayı kapatmak istediğinizden emin misiniz?", "Dikkat", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
         private void OpenImageEditForm(object sender, EventArgs e)
         {
             if (FileName == null)
             {
-                MessageBox.Show("Please select an image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen resim seçin", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -153,88 +113,11 @@ namespace YazLab1
             }
         }
 
-        private void btn_fileOpen_Click(object sender, EventArgs e)
-        {
-            OpenFile();
-        }
-
-        private void btn_histogram_Click(object sender, EventArgs e)
-        {
-            OpenHistogramForm();
-        }
-
-        private void btn_colorChannels_Click(object sender, EventArgs e)
-        {
-            OpenColorChannelsForm();
-        }
-
-        private void toolStripMenuItem_exit_Click(object sender, EventArgs e)
-        {
-            var dialogResult = MessageBox.Show("Application will be closed, Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void btn_scale_Click(object sender, EventArgs e)
-        {
-            OpenImageEditForm();
-        }
-
-        private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenImageEditForm();
-        }
-
-        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenImageEditForm();
-        }
-
-        private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenImageEditForm();
-        }
-
-        private void negativeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenImageEditForm();
-        }
-
-        private void scaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var tempForm = new ImageEditForm();
-
-            Hide();
-            tempForm.Show();
-        }
-
-        private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenHistogramForm();
-        }
-
-        private void colorChannelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenColorChannelsForm();
-        }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFile();
         }
 
-        private void toolStripMenuItem_suprise_Click(object sender, EventArgs e)
-        {
-            //Suprise();
-        }
         #endregion
-
-        private void btn_reopen_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

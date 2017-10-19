@@ -128,5 +128,33 @@ namespace YazLab1
 
             imageEditForm.Show();
         }
+        private void btn_saveChart_Click(object sender, EventArgs e)
+        {
+            if (cboxRed.Checked == false && cboxGreen.Checked == false && cboxBlue.Checked == false && cboxGrayscale.Checked == false)
+            {
+                MessageBox.Show("Lüften bir grafik seçin", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Title = "Grafiğin kaydedileceği yeri seçiniz",
+                    Filter = "PNG|*.png|JPeg|*.jpg"
+                };
+
+                var dialogResult = saveFileDialog.ShowDialog();
+
+                if (dialogResult == DialogResult.OK && saveFileDialog.FileName != "")
+                {
+                    chartHistogram.SaveImage(saveFileDialog.FileName, ChartImageFormat.Jpeg);
+
+                    MessageBox.Show($"Grafik kaydedildi: {Environment.NewLine + saveFileDialog.FileName}", "Kayıt Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    MessageBox.Show("Lüften kayıt yeri seçin", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

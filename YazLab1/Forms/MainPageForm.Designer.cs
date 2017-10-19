@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.btn_scale = new System.Windows.Forms.Button();
+            this.btn_imageEdit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_fileOpen = new System.Windows.Forms.Button();
@@ -41,7 +41,6 @@
             this.toolStripMenuItem_file = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_suprise = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -61,20 +60,20 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
-            // btn_scale
+            // btn_imageEdit
             // 
-            this.btn_scale.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btn_imageEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_scale.Location = new System.Drawing.Point(15, 15);
-            this.btn_scale.Margin = new System.Windows.Forms.Padding(15);
-            this.btn_scale.Name = "btn_scale";
-            this.btn_scale.Size = new System.Drawing.Size(302, 97);
-            this.btn_scale.TabIndex = 5;
-            this.btn_scale.Text = "Edit Image";
-            this.btn_scale.UseVisualStyleBackColor = true;
-            this.btn_scale.Click += new System.EventHandler(this.btn_scale_Click);
+            this.btn_imageEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_imageEdit.Location = new System.Drawing.Point(15, 15);
+            this.btn_imageEdit.Margin = new System.Windows.Forms.Padding(15);
+            this.btn_imageEdit.Name = "btn_imageEdit";
+            this.btn_imageEdit.Size = new System.Drawing.Size(302, 97);
+            this.btn_imageEdit.TabIndex = 5;
+            this.btn_imageEdit.Text = "Resmi Düzenle";
+            this.btn_imageEdit.UseVisualStyleBackColor = true;
+            this.btn_imageEdit.Click += new System.EventHandler(this.OpenImageEditForm);
             // 
             // tableLayoutPanel1
             // 
@@ -84,7 +83,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.btn_scale, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btn_imageEdit, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(736, 1011);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -122,7 +121,7 @@
             this.btn_fileOpen.Name = "btn_fileOpen";
             this.btn_fileOpen.Size = new System.Drawing.Size(157, 56);
             this.btn_fileOpen.TabIndex = 10;
-            this.btn_fileOpen.Text = "Open File";
+            this.btn_fileOpen.Text = "Dosya Aç";
             this.btn_fileOpen.UseVisualStyleBackColor = true;
             this.btn_fileOpen.Click += new System.EventHandler(this.btn_fileOpen_Click);
             // 
@@ -132,11 +131,11 @@
             this.lbl_message.AutoSize = true;
             this.lbl_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_message.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_message.Location = new System.Drawing.Point(743, 894);
+            this.lbl_message.Location = new System.Drawing.Point(755, 894);
             this.lbl_message.Name = "lbl_message";
-            this.lbl_message.Size = new System.Drawing.Size(317, 33);
+            this.lbl_message.Size = new System.Drawing.Size(294, 33);
             this.lbl_message.TabIndex = 11;
-            this.lbl_message.Text = "Please select an image";
+            this.lbl_message.Text = "Lütfen bir resim seçin";
             this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -178,8 +177,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_file,
-            this.toolStripMenuItem_exit,
-            this.toolStripMenuItem_suprise});
+            this.toolStripMenuItem_exit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -192,29 +190,22 @@
             this.toolStripMenuItem_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.toolStripMenuItem_file.Name = "toolStripMenuItem_file";
-            this.toolStripMenuItem_file.Size = new System.Drawing.Size(72, 44);
-            this.toolStripMenuItem_file.Text = "File";
+            this.toolStripMenuItem_file.Size = new System.Drawing.Size(107, 44);
+            this.toolStripMenuItem_file.Text = "Dosya";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 44);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(150, 44);
+            this.openToolStripMenuItem.Text = "Aç";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripMenuItem_exit
             // 
             this.toolStripMenuItem_exit.Name = "toolStripMenuItem_exit";
-            this.toolStripMenuItem_exit.Size = new System.Drawing.Size(74, 44);
-            this.toolStripMenuItem_exit.Text = "Exit";
+            this.toolStripMenuItem_exit.Size = new System.Drawing.Size(87, 44);
+            this.toolStripMenuItem_exit.Text = "Çıkış";
             this.toolStripMenuItem_exit.Click += new System.EventHandler(this.toolStripMenuItem_exit_Click);
-            // 
-            // toolStripMenuItem_suprise
-            // 
-            this.toolStripMenuItem_suprise.Name = "toolStripMenuItem_suprise";
-            this.toolStripMenuItem_suprise.Size = new System.Drawing.Size(178, 44);
-            this.toolStripMenuItem_suprise.Text = "Suprise Me!";
-            this.toolStripMenuItem_suprise.Click += new System.EventHandler(this.toolStripMenuItem_suprise_Click);
             // 
             // MainPageForm
             // 
@@ -222,6 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1804, 1211);
+            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -246,7 +238,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button btn_scale;
+        private System.Windows.Forms.Button btn_imageEdit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btn_fileOpen;
@@ -258,6 +250,5 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_file;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_exit;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_suprise;
     }
 }
