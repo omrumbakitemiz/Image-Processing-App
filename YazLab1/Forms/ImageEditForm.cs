@@ -19,7 +19,7 @@ namespace YazLab1.Forms
             #endregion
 
             pbox_original.Image = MainPageForm.SelectedImage;
-            pbox_edited.Image = ImageEdit.editedImage;
+            pbox_edited.Image = ImageEdit.editedImage; 
             ImageEdit.originalImage = MainPageForm.SelectedImage;
         }
 
